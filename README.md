@@ -17,4 +17,7 @@ docker compose up --build -d
 
 ├── ollama
   ├── docker-compose.yml
+
+├── portainer
+  ├── docker-compose.yml
 ```
