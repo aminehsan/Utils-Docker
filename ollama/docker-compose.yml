@@ -22,7 +22,6 @@ services:
     volumes:
       - open_webui_data:/app/backend/data
 
-
 volumes:
   ollama_data:
   open_webui_data:
