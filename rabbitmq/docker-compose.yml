@@ -10,6 +10,5 @@ services:
       - rabbitmq_data:/var/lib/rabbitmq
       - rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
 
-
 volumes:
   rabbitmq_data:
