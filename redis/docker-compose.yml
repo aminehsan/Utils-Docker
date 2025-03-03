@@ -10,6 +10,5 @@ services:
       - redis.conf:/etc/redis/redis.conf
     command: [ "redis-server", "/etc/redis/redis.conf" ]
 
-
 volumes:
   redis_data:
