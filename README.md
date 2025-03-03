@@ -14,4 +14,7 @@ docker compose up --build -d
 ├── redis
   ├── redis.conf
   ├── docker-compose.yml
+
+├── ollama
+  ├── docker-compose.yml
 ```
