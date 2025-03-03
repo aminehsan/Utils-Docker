@@ -1,15 +1,15 @@
 services:
-  storage:
+  redis:
     container_name: redis
     image: redis:alpine3.20
     restart: always
     ports:
       - 6379:6379
     volumes:
-      - storage_data:/data
+      - redis_data:/data
       - redis.conf:/etc/redis/redis.conf
     command: [ "redis-server", "/etc/redis/redis.conf" ]
 
 
 volumes:
-  storage_data:
+  redis_data:
