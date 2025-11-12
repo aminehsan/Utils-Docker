@@ -1,14 +1,17 @@
 services:
   redis:
     container_name: redis
-    image: redis:alpine3.20
-    restart: always
+    image: redis:8.2.2
+    restart: unless-stopped
     ports:
-      - 6379:6379
+      - "6379:6379"
     volumes:
       - redis_data:/data
-      - redis.conf:/etc/redis/redis.conf
-    command: [ "redis-server", "/etc/redis/redis.conf" ]
+    command: "redis-server --requirepass pass"
+    healthcheck:
+      test: "redis-cli ping"
+      timeout: 5s
+      retries: 2
 
 volumes:
   redis_data:

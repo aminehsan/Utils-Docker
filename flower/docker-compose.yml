@@ -1,0 +1,16 @@
+services:
+  flower:
+    container_name: flower
+    image: mher/flower:2.0.1
+    restart: unless-stopped
+    ports:
+      - "5555:5555"
+    environment:
+      - CELERY_TIMEZONE=Asia/Tehran
+      - CELERY_BROKER=redis://:pass@host.docker.internal:6379/5
+      - CELERY_BACKEND=redis://:pass@host.docker.internal:6379/6
+    command: "celery flower --basic_auth=admin:pass"
+    healthcheck:
+      test: "curl -f http://localhost:5555"
+      timeout: 5s
+      retries: 2
