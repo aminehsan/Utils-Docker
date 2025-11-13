@@ -2,13 +2,13 @@ services:
   rabbitmq:
     container_name: rabbitmq
     image: rabbitmq:4-management-alpine
-    restart: always
+    restart: unless-stopped
     ports:
-      - 5672:5672
-      - 15672:15672
+      - "5672:5672"
+      - "15672:15672"
     volumes:
+      - rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - rabbitmq_data:/var/lib/rabbitmq
-      - rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
 
 volumes:
   rabbitmq_data:

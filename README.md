@@ -1,23 +1,24 @@
 # Docker
 
-## How to run Docker
+## How to run
 ```bash
-docker compose up --build -d
+docker compose ./postgres.yml up
+# or
+docker compose ./... up --build -d
+docker compose ./... down -v
 ```
 
 #### Structure :
 ```
-├── rabbitmq
+├── flower.yml
+├── minio.yml
+├── ollama.yml
+├── portainer.yml
+├── postgres.yml
+├── rabbitmq.yml
   ├── rabbitmq.conf
-  ├── docker-compose.yml
-
-├── redis
+  ├── rabbitmq.conf.example
+├── redis.yml
   ├── redis.conf
-  ├── docker-compose.yml
-
-├── ollama
-  ├── docker-compose.yml
-
-├── portainer
-  ├── docker-compose.yml
+  ├── redis.conf.example
 ```
