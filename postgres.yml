@@ -10,7 +10,7 @@ services:
       - POSTGRES_PASSWORD=pass
       - POSTGRES_DB=test
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     healthcheck:
       test: "pg_isready -U admin -d test"
       interval: 10s
