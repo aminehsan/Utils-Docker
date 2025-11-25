@@ -2,10 +2,10 @@
 
 ## How to run
 ```bash
-docker compose ./postgres.yml up
+docker compose -f postgres.yml up
 # or
-docker compose ./... up --build -d
-docker compose ./... down -v
+docker compose -f ./... up --build -d
+docker compose -f ./... down -v
 ```
 
 #### Structure :
