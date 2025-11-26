@@ -8,8 +8,10 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=main
       - MONGO_INITDB_ROOT_PASSWORD=pass
+      # - MONGO_INITDB_DATABASE=test
     volumes:
       - mongo_data:/data/db
+      - mongo-config:/data/configdb
     healthcheck:
       test: "mongosh -u main -p pass --authenticationDatabase admin --eval \"db.adminCommand('ping')\""
       interval: 10s
@@ -18,3 +20,4 @@ services:
 
 volumes:
   mongo_data:
+  mongo-config:
