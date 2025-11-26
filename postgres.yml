@@ -8,11 +8,11 @@ services:
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=pass
-      - POSTGRES_DB=test
+      # - POSTGRES_DB=test
     volumes:
       - postgres_data:/var/lib/postgresql
     healthcheck:
-      test: "pg_isready -U admin -d test"
+      test: "pg_isready -U admin -d postgres"
       interval: 10s
       timeout: 5s
       retries: 2
