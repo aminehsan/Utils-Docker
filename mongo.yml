@@ -1,0 +1,20 @@
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=main
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: "mongosh -u main -p pass --authenticationDatabase admin --eval \"db.adminCommand('ping')\""
+      interval: 10s
+      timeout: 5s
+      retries: 2
+
+volumes:
+  mongo_data:
