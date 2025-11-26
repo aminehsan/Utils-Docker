@@ -9,7 +9,7 @@ services:
       - redis_data:/data
     command: "redis-server --requirepass pass"
     healthcheck:
-      test: "redis-cli ping"
+      test: "redis-cli -a pass ping"
       timeout: 5s
       retries: 2
 
