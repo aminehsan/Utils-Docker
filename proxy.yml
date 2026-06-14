@@ -1,0 +1,9 @@
+services:
+  proxy:
+    container_name: proxy
+    image: teddysun/v2ray:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./proxy/config.json:/etc/v2ray/config.json

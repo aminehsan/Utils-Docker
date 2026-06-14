@@ -1,0 +1,51 @@
+{
+  "log": {
+    "loglevel": "error"
+  },
+  "inbounds": [
+    {
+      "port": 8080,
+      "protocol": "http",
+      "settings": {
+        "accounts": [
+          {
+            "user": "xxxx",
+            "pass": "xxxx"
+          }
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "xxx.xxxxxxxxx.xxx",
+            "port": 443,
+            "users": [
+              {
+                "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "xXXx-xXx.XXXxx.xxx"
+        },
+        "wsSettings": {
+          "path": "/xxxxxxxxxxxxxxxx?xx=xxxx",
+          "headers": {
+            "Host": "xxxx-xxx.xxxxx.xxx"
+          }
+        }
+      }
+    }
+  ]
+}
