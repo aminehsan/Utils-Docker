@@ -1,0 +1,83 @@
+services:
+  n8n:
+    container_name: n8n
+    image: n8nio/n8n:stable
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - TZ=Asia/Tehran
+      - GENERIC_TIMEZONE=Asia/Tehran
+      - N8N_SECURE_COOKIE=false
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_ENCRYPTION_KEY=n8nkye
+      - N8N_BINARY_DATA_MODE=filesystem
+      - N8N_BINARY_DATA_STORAGE_PATH=/data/binaries
+      - N8N_LOG_LEVEL=warn
+      - N8N_LOG_OUTPUT=console
+      - NODE_ENV=production
+      # - DB_TYPE=postgresdb
+      # - DB_POSTGRESDB_HOST=postgres
+      # - DB_POSTGRESDB_PORT=5432
+      # - DB_POSTGRESDB_DATABASE=n8n
+      # - DB_POSTGRESDB_USER=admin
+      # - DB_POSTGRESDB_PASSWORD=pass
+      # - EXECUTIONS_MODE=queue
+      # - N8N_RUNNERS_ENABLED=false
+      # - QUEUE_BULL_REDIS_HOST=redis
+      # - QUEUE_BULL_REDIS_PORT=6379
+      # - QUEUE_BULL_REDIS_PASSWORD=pass
+      # - QUEUE_BULL_REDIS_DB=0
+      - EXECUTIONS_DATA_SAVE_ON_ERROR=none
+      - EXECUTIONS_DATA_SAVE_ON_SUCCESS=none
+      - EXECUTIONS_DATA_PRUNE=true
+      - EXECUTIONS_DATA_MAX_AGE=24
+      - N8N_NATIVE_PYTHON_RUNNER=true
+      # - NODE_OPTIONS=--max_old_space_size=2048
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - n8n_binaries:/data/binaries
+    healthcheck:
+      test: "wget -qO- http://localhost:5678/healthz || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 2
+
+#  n8n-worker:
+#    image: n8nio/n8n:stable
+#    container_name: n8n-worker
+#    restart: unless-stopped
+#    command: worker
+#    environment:
+#      - TZ=Asia/Tehran
+#      - GENERIC_TIMEZONE=Asia/Tehran
+#      - N8N_ENCRYPTION_KEY=n8nkye
+#      - DB_TYPE=postgresdb
+#      - DB_POSTGRESDB_HOST=postgres
+#      - DB_POSTGRESDB_PORT=5432
+#      - DB_POSTGRESDB_DATABASE=n8n
+#      - DB_POSTGRESDB_USER=admin
+#      - DB_POSTGRESDB_PASSWORD=pass
+#      - EXECUTIONS_MODE=queue
+#      - N8N_RUNNERS_ENABLED=false
+#      - QUEUE_BULL_REDIS_HOST=redis
+#      - QUEUE_BULL_REDIS_PORT=6379
+#      - QUEUE_BULL_REDIS_PASSWORD=pass
+#      - QUEUE_BULL_REDIS_DB=0
+#      - QUEUE_HEALTH_CHECK_ACTIVE=true
+#      - N8N_DISABLE_UI=true
+#      - N8N_DISABLE_ACTIVE_WORKFLOWS=true
+#      - N8N_NATIVE_PYTHON_RUNNER=true
+#      - NODE_OPTIONS=--max_old_space_size=4096
+#    volumes:
+#      - n8n_data:/home/node/.n8n
+#      - n8n_binaries:/data/binaries
+#    healthcheck:
+#      test: "pgrep -f n8n-worker || exit 1"
+#      interval: 10s
+#      timeout: 5s
+#      retries: 2
+
+volumes:
+  n8n_data:
+  n8n_binaries:

@@ -33,6 +33,7 @@ networks:
 ├── metabase.yml
 ├── minio.yml
 ├── mongo.yml
+├── n8n.yml
 ├── ollama.yml
 ├── portainer.yml
 ├── postgres.yml
