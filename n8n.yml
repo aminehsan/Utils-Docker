@@ -3,6 +3,7 @@ services:
     container_name: n8n
     image: n8nio/n8n:stable
     restart: unless-stopped
+    user: root
     ports:
       - "5678:5678"
     environment:
@@ -47,7 +48,7 @@ services:
 #    image: n8nio/n8n:stable
 #    container_name: n8n-worker
 #    restart: unless-stopped
-#    command: worker
+#    user: root
 #    environment:
 #      - TZ=Asia/Tehran
 #      - GENERIC_TIMEZONE=Asia/Tehran
@@ -69,6 +70,7 @@ services:
 #      - N8N_DISABLE_ACTIVE_WORKFLOWS=true
 #      - N8N_NATIVE_PYTHON_RUNNER=true
 #      - NODE_OPTIONS=--max_old_space_size=4096
+#    command: worker
 #    volumes:
 #      - n8n_data:/home/node/.n8n
 #      - n8n_binaries:/data/binaries
