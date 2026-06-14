@@ -8,13 +8,36 @@ docker compose -f ./... up --build -d
 docker compose -f ./... down -v
 ```
 
-#### Structure :
+#### Extra config:
+```
+services:
+  service_name_1:
+    deploy:
+      replicas: 10
+    networks:
+      - local_net
+    depends_on:
+      service_name_2:
+        condition: service_healthy
+      service_name_3:
+        condition: service_healthy
+
+networks:
+  local_net:
+    external: true
+```
+
+#### Structure:
 ```
 ├── flower.yml
+├── metabase.yml
 ├── minio.yml
+├── mongo.yml
 ├── ollama.yml
 ├── portainer.yml
 ├── postgres.yml
+├── proxy.yml
+  ├── config.json
 ├── rabbitmq.yml
   ├── rabbitmq.conf
   ├── rabbitmq.conf.example
