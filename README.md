@@ -39,6 +39,7 @@ networks:
 ├── postgres.yml
 ├── proxy.yml
   ├── config.json
+├── python.yml
 ├── rabbitmq.yml
   ├── rabbitmq.conf
   ├── rabbitmq.conf.example
