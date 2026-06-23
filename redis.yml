@@ -5,6 +5,8 @@ services:
     restart: unless-stopped
     ports:
       - "6379:6379"
+    environment:
+      - TZ=Asia/Tehran
     volumes:
       - redis_data:/data
     command: "redis-server --requirepass pass"

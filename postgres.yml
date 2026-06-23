@@ -6,6 +6,7 @@ services:
     ports:
       - "5432:5432"
     environment:
+      - TZ=Asia/Tehran
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=pass
       # - POSTGRES_DB=test

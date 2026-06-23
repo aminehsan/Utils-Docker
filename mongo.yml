@@ -6,6 +6,7 @@ services:
     ports:
       - "27017:27017"
     environment:
+      - TZ=Asia/Tehran
       - MONGO_INITDB_ROOT_USERNAME=main
       - MONGO_INITDB_ROOT_PASSWORD=pass
       # - MONGO_INITDB_DATABASE=test

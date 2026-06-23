@@ -6,6 +6,8 @@ services:
     tty: true
     ports:
       - "11434:11434"
+    environment:
+      - TZ=Asia/Tehran
     volumes:
       - ollama_data:/root/.ollama
 
@@ -16,6 +18,7 @@ services:
     ports:
       - "8080:8080"
     environment:
+      - TZ=Asia/Tehran
       - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
       - open_webui_data:/app/backend/data
