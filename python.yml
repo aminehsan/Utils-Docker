@@ -1,0 +1,22 @@
+services:
+  python:
+    container_name: python
+    image: python:latest
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    working_dir: /projects
+    ports:
+      - "8000:8000"
+    environment:
+      - TZ=Asia/Tehran
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    volumes:
+      - ./projects:/projects
+    command: "bash"
+    healthcheck:
+      test: "python -c 'import sys; sys.exit(0)'"
+      interval: 10s
+      timeout: 5s
+      retries: 2
