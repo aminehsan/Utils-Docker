@@ -2,10 +2,20 @@
 
 ## How to run
 ```bash
-docker compose -f postgres.yml up
+docker compose -f ./postgres.yml up -d
 # or
-docker compose -f ./... up --build -d
-docker compose -f ./... down -v
+docker compose -f ./<docker_compose_name>.yml --build -d
+docker compose -f ./... up down -v
+```
+### How to log
+```bash
+docker compose -f ./... logs -f
+```
+
+### How to exec
+```bash
+docker compose -f ./python.yml exec python sh
+docker compose -f ./... exec <service_name> bash
 ```
 
 #### Extra config:
@@ -21,7 +31,6 @@ services:
         condition: service_healthy
       service_name_3:
         condition: service_healthy
-
 networks:
   local_net:
     external: true
