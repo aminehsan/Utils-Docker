@@ -46,6 +46,7 @@ networks:
 ├── ollama.yml
 ├── portainer.yml
 ├── postgres.yml
+  ├── README.md
 ├── proxy.yml
   ├── config.json
 ├── python.yml
@@ -55,4 +56,5 @@ networks:
 ├── redis.yml
   ├── redis.conf
   ├── redis.conf.example
+├── README.md
 ```
