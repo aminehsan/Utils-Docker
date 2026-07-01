@@ -24,6 +24,8 @@ services:
       # - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
     volumes:
       - kafka_data:/var/lib/kafka/data
+      - kafka_secrets:/etc/kafka/secrets
+      - kafka_config:/mnt/shared/config
 
   kafka-ui:
     container_name: kafka-ui
@@ -40,3 +42,5 @@ services:
 
 volumes:
   kafka_data:
+  kafka_secrets:
+  kafka_config:
