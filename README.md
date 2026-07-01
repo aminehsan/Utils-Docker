@@ -39,6 +39,7 @@ networks:
 #### Structure:
 ```
 ├── flower.yml
+├── kafka.yml
 ├── metabase.yml
 ├── minio.yml
 ├── mongo.yml
