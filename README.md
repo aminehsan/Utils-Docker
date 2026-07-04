@@ -1,4 +1,5 @@
 # Docker
+#### `https://docs.docker.com`
 
 ## How to run
 ```bash
@@ -40,6 +41,8 @@ networks:
 ```
 ├── flower.yml
 ├── kafka.yml
+  ├── config/server.properties
+  ├── secrets/kafka_server_jaas.conf
 ├── metabase.yml
 ├── minio.yml
 ├── mongo.yml
