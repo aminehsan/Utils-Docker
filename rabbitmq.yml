@@ -9,8 +9,8 @@ services:
     environment:
       - TZ=Asia/Tehran
     volumes:
-      - rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - rabbitmq_data:/var/lib/rabbitmq
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
 
 volumes:
   rabbitmq_data:
