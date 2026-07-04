@@ -1,11 +1,11 @@
 services:
   kafka:
     container_name: kafka
-    image: apache/kafka:latest
+    image: apache/kafka:latest # apache/kafka:latest -> apache/kafka:4.3.1
     hostname: kafka
     restart: unless-stopped
     ports:
-      - "9091:29092" # 9091 -> <new port>
+      - "9091:29092" # 9091 -> <new port> and edit server.properties
     environment:
       - TZ=Asia/Tehran
       - KAFKA_OPTS=-Djava.security.auth.login.config=/etc/kafka/secrets/kafka_server_jaas.conf
@@ -16,7 +16,7 @@ services:
 
   kafka-ui:
     container_name: kafka-ui
-    image: provectuslabs/kafka-ui:latest
+    image: provectuslabs/kafka-ui:latest # provectuslabs/kafka-ui:latest -> provectuslabs/kafka-ui:v0.7.2
     restart: unless-stopped
     ports:
       - "8080:8080"
