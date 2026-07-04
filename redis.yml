@@ -1,7 +1,7 @@
 services:
   redis:
     container_name: redis
-    image: redis:latest
+    image: redis:latest # redis:latest -> redis:8.8.0
     restart: unless-stopped
     ports:
       - "6379:6379"
