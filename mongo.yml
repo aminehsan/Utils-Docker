@@ -1,7 +1,7 @@
 services:
   mongo:
     container_name: mongo
-    image: mongo:latest
+    image: mongo:latest # mongo:latest -> mongo:8.2.11
     restart: unless-stopped
     ports:
       - "27017:27017"
