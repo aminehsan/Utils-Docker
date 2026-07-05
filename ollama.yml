@@ -1,7 +1,7 @@
 services:
   ollama:
     container_name: ollama
-    image: ollama/ollama:latest
+    image: ollama/ollama:latest # ollama/ollama:latest -> ollama/ollama:0.31.1
     restart: unless-stopped
     tty: true
     ports:
