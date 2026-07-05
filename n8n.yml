@@ -1,7 +1,7 @@
 services:
   n8n:
     container_name: n8n
-    image: n8nio/n8n:stable
+    image: n8nio/n8n:stable # n8nio/n8n:stable -> n8nio/n8n:2.28.6
     restart: unless-stopped
     user: root
     ports:
@@ -45,7 +45,7 @@ services:
       retries: 2
 
 #  n8n-worker:
-#    image: n8nio/n8n:stable
+#    image: n8nio/n8n:stable # n8nio/n8n:stable -> n8nio/n8n:2.28.6
 #    container_name: n8n-worker
 #    restart: unless-stopped
 #    user: root
