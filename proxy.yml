@@ -1,7 +1,7 @@
 services:
   proxy:
     container_name: proxy
-    image: teddysun/v2ray:latest
+    image: teddysun/v2ray:latest # teddysun/v2ray:latest -> teddysun/v2ray:5.51.2
     restart: unless-stopped
     ports:
       - "8080:8080"
