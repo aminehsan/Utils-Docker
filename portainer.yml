@@ -4,8 +4,8 @@ services:
     image: portainer/portainer-ce:latest # portainer/portainer-ce:latest -> portainer/portainer-ce:2.39.4
     restart: unless-stopped
     ports:
-      # - "9443:9443" https
       - "9000:9000"
+      # - "9443:9443" # http -> https
     environment:
       - TZ=Asia/Tehran
     volumes:
