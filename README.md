@@ -1,5 +1,8 @@
 # Docker
-#### `https://docs.docker.com`
+```
+https://docs.docker.com
+https://hub.docker.com
+```
 
 ## How to run
 ```bash
@@ -8,6 +11,7 @@ docker compose -f ./postgres.yml up -d
 docker compose -f ./<docker_compose_name>.yml --build -d
 docker compose -f ./... up down -v
 ```
+
 ### How to log
 ```bash
 docker compose -f ./... logs -f
@@ -19,6 +23,12 @@ docker compose -f ./python.yml exec python sh
 docker compose -f ./... exec <service_name> bash
 ```
 
+### Create network
+```bash
+docker network create <network_name>
+docker network ls
+```
+
 #### Extra config:
 ```
 services:
@@ -26,14 +36,15 @@ services:
     deploy:
       replicas: 10
     networks:
-      - local_net
+      - network_name
     depends_on:
       service_name_2:
         condition: service_healthy
       service_name_3:
         condition: service_healthy
+
 networks:
-  local_net:
+  network_name:
     external: true
 ```
 
