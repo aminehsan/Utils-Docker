@@ -1,7 +1,7 @@
 services:
   flower:
     container_name: flower
-    image: mher/flower:2.0.1
+    image: mher/flower:latest # mher/flower:latest -> mher/flower:2.0.1
     restart: unless-stopped
     ports:
       - "5555:5555"
