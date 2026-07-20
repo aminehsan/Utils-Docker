@@ -27,6 +27,7 @@ docker compose -f ./... exec <service_name> bash
 ```bash
 docker network create <network_name>
 docker network ls
+docker network rm <network_name>
 ```
 
 #### Extra config:
