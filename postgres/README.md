@@ -12,6 +12,12 @@ psql -h localhost -p 5432 -U <owner> -d <database>
 CREATE USER <user> PASSWORD 'pass';
 ```
 
+### Dump and Restore
+```bash
+pg_dump --host=<host> --port=<port> --username=<username> --dbname=<dbname> --file="./<name>.dump" --format=custom --no-owner --no-privileges --compress=9 --verbose
+pg_restore --host=<host> --port=<port> --username=<username> --dbname=<dbname> --clean --if-exists --no-owner --verbose "./<name>.dump"
+```
+
 ### Create Database
 ```bash
 CREATE DATABASE <database_name>
